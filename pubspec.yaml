@@ -1,0 +1,53 @@
+name: doctory
+description: A new Flutter application.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.3
+  simple_animations: ^1.3.3
+  font_awesome_flutter: ^8.10.0
+  http: ^0.12.0+4
+  dio: ^3.0.9
+  url_launcher: ^5.4.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  assets:
+    - assets/back.jpg
+    - assets/logo.jpg
+    - assets/background.jpg
+    - assets/login.jpg
+    - assets/personlogin.png
+    - assets/background1.png
+    - assets/light-1.png
+    - assets/light-2.png
+    - assets/clock.png
+    - assets/background12.png
+    - assets/selectpage.png
+    - assets/JSM.png
+    - assets/selectpage2.png
+    - assets/JSM2.png
+    - assets/Corona.png
+    - assets/world.png
+    - assets/jordans.png
+    - assets/myth.png
+    - assets/wdeath.png
+    - assets/cases.png
+    - assets/COVID-19-Card-3.jpg
+    - assets/umb.jpg
+  uses-material-design: true
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
+        - asset: fonts/Poppins-Italic.ttf
+          style: italic
+    - family: Bangers
+      fonts:
+        - asset: fonts/Bangers-Regular.ttf
