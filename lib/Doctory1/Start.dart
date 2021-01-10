@@ -1,15 +1,38 @@
 import 'package:doctory/Doctory1/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'Selectpath.dart';
 class StatrPage extends StatefulWidget {
   @override
   _StatrPageState createState() => _StatrPageState();
 }
 class _StatrPageState extends State<StatrPage>{
+  String email;
+  Future getvalidaton()async{
+    final SharedPreferences sharepref =await SharedPreferences.getInstance();
+    var obtainedEmail=sharepref.getString('email');
+    setState(() {
+      email=obtainedEmail;
+    });
+    print("the email"+email);
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    getvalidaton(){
+     if(email==null){
+       Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
+     }
+     else Navigator.push(context, MaterialPageRoute(builder: (context)=>pathselect()));
+    };
+
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar:AppBar(
         title: Text('DOCTORY'),

@@ -100,14 +100,16 @@ class _worldState extends State<world> {
                             Padding(
                               padding: EdgeInsets.only(top: 5),
                             ),
-                            Image(image:AssetImage('assets/wdeath.png'),
-                            height: 85, width: 85,
+                            Image(image:AssetImage('assets/ehabcorona.png'),
+                            height: 100, width: 100,
                             ),
-                            Text(Snpashot.data[index]['country'],
-                            style: TextStyle(
-                              color: Colors.white,fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),),
+                            Expanded(
+                              child: Text(Snpashot.data[index]['country'],
+                              style: TextStyle(
+                                color: Colors.white,fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),),
+                            ),
                           ],
                         ),
                       ),

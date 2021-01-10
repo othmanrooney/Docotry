@@ -13,6 +13,24 @@ dependencies:
   http: ^0.12.0+4
   dio: ^3.0.9
   url_launcher: ^5.4.2
+  firebase_auth: ^0.18.3
+  cloud_firestore: ^0.14.3
+  firebase_core: ^0.5.2
+  provider: ^4.3.2+2
+  flutter_spinkit: ^4.1.2+1
+  modal_progress_hud: ^0.1.3
+  firebase_database: ^4.3.0
+  shared_preferences: ^0.5.12+4
+  image_picker: ^0.6.7+17
+  firebase_storage: ^5.2.0
+  path: ^1.7.0
+  geolocator: ^6.1.13
+  carousel_slider: ^2.3.1
+  path_drawing: ^0.4.1+1
+
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +59,33 @@ flutter:
     - assets/cases.png
     - assets/COVID-19-Card-3.jpg
     - assets/umb.jpg
+    - assets/ehabcorona.png
+    - assets/path/babys.jpg
+    - assets/path/beauty.jpg
+    - assets/path/Cardiology.jpg
+    - assets/path/Dentistry.jpg
+    - assets/path/Dermatology.jpg
+    - assets/path/Ear , Nose & Throat ( E N T).jpg
+    - assets/path/Eyes.jpg
+    - assets/path/Hematology.jpg
+    - assets/path/Nerves.jpg
+    - assets/path/Neurology.jpg
+    - assets/path/Obstetrics & Gynecology.jpg
+    - assets/path/Oncology.jpg
+    - assets/path/Pediatric.jpg
+    - assets/path/Prosthetics.jpg
+    - assets/path/Psychiatry.jpg
+    - assets/path/Urology.jpg
+    - assets/infopage.jpg
+    - assets/header.jpg
+    - assets/header2.png
+    - assets/header3.png
+    - assets/selectpage3.png
+    - assets/selectpage4.png
+    - assets/body1.png
+    - assets/heads.png
+    - assets/body2.png
+    - assets/body3.png
   uses-material-design: true
   fonts:
     - family: Poppins

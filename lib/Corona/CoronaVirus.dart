@@ -123,17 +123,17 @@ class _CoronaState extends State<Corona> {
                             children: <Widget>[
                               Text("${covid.cases}",style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 23,
+                                fontSize: 20,
                                 fontWeight:FontWeight.bold,
                               ),),
                               Text("${covid.deaths}",style: TextStyle(
                                 color: Colors.yellowAccent,
-                                fontSize: 23,
+                                fontSize: 20,
                                 fontWeight:FontWeight.bold,
                               ),),
                               Text("${covid.recovered}",style: TextStyle(
                                 color: Colors.lightGreenAccent,
-                                fontSize: 23,
+                                fontSize: 20,
                                 fontWeight:FontWeight.bold,
                               ),),
                             ],
