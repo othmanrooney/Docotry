@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'ClinicsCardiology.dart';
 import 'ClinicsDermatology.dart';
 import 'ClinicsHematology.dart';
@@ -51,11 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Text(widget.title , style: TextStyle(fontSize: 20.0 ,color: Colors.white),),),
         ),
         body: Stack(
+          fit: StackFit.expand,
             alignment: AlignmentDirectional.topStart,
             children: <Widget>[
               AnimatedBackground(controller: _controller),
               Center(
                   child: ListView(
+                    shrinkWrap: true,
                     controller: _controller,
                     children: [
                       DemoCard(),

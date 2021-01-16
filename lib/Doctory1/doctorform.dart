@@ -19,7 +19,8 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   final listdoc= ["Select","Cardiology","Dermatology","Hematology",
     "ClinicsNerves","Neurology","Oncology","Pediatric",
-    "Urology","ear-nose-throat","EYE","Dental Clinics","sexual-health-clinic"];
+    "Urology","ear-nose-throat","EYE","Dental Clinics","sexual-health-clinic","hear",
+    "Physical therapy"," nutrition_specialist","Foot","Other"];
 
   Future getimage()async{
   PickedFile pickfile = await ImagePicker().getImage(source: ImageSource.gallery);
@@ -276,7 +277,7 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                             child: TextFormField(
                               controller: Scout,
                               decoration: InputDecoration(
-                                labelText: "Fees",
+                                labelText: "Fees \$",
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -296,7 +297,7 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                             child:  Center(
                               child: _imgurl== null
                                   ? Text('No image selected.')
-                                  : Image.network(_imgurl),
+                                  :Image.network(_imgurl),
                             ),
                           ),
                           Padding(
@@ -321,8 +322,7 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                               progress: _animationController,
                               color: Colors.blue.shade900,
                               size: 30.0,
-
-                            ), label: lat==null&&long==null?Text("press To get Your location"):Text("Done")),
+                            ), label: lat==null&&long==null?Text("Double Tap To get Your location"):Text("Done")),
                           ),
                           Padding(
                               padding: EdgeInsets.all(20.0),
@@ -352,9 +352,10 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                                           phoneNumbercontroller.clear();
                                           nameController.clear();
                                           destinationcontroller.clear();
+
                                         }).catchError((onError) {
                                           Scaffold.of(context)
-                                              .showSnackBar(SnackBar(content: Text(onError)));
+                                              .showSnackBar(SnackBar(content: Text("no repeat it ")));
                                         });
                                         // dbRef.push().set({
                                         //   "name": nameController.text,
@@ -376,8 +377,14 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                                         //   Scaffold.of(context)
                                         //       .showSnackBar(SnackBar(content: Text(onError)));
                                         // });
-                                      }
 
+                                      }
+                                      showDialog(context: context, child:
+                                      new AlertDialog(
+                                        title: new Text("My Contact : "+nameController.text),
+                                        content: new Text("Yes completed"),
+                                      )
+                                      );
 
                                     },
                                     child: Text('Submit'),
@@ -385,10 +392,8 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                                   RaisedButton(
                                     color: Colors.amber,
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => login()),
-                                      );
+                                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                          login()), (Route<dynamic> route) => false);
                                     },
                                     child: Text('Navigate'),
                                   ),

@@ -1,4 +1,6 @@
-import 'package:doctory/External/Lower.dart';
+import 'package:doctory/External/body.dart';
+import 'package:doctory/External/head.dart';
+import 'package:doctory/External/under.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,9 +30,15 @@ class SelectPart extends StatelessWidget {
                         color: Colors.lightBlue,
                       child: Image(image: AssetImage('assets/heads.png'),),
                       ),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>head()));
+                      },
                     ),),
                     
                     FadeAnimation(3,GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Body()));
+                      },
                       child: Card(
                       color: Colors.lightBlue,
                         child: Image(image: AssetImage('assets/body2.png'),),
@@ -50,6 +58,9 @@ class SelectPart extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>under()));
+                      },
                     ),),
                     Padding(
                       padding: const EdgeInsets.all(50.0),

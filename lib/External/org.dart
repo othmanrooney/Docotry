@@ -1,17 +1,24 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-class ClinicsHematology extends StatelessWidget {
+
+class orginal extends StatefulWidget {
+  @override
+  _orginalState createState() => _orginalState();
+}
+
+class _orginalState extends State<orginal> {
   final TextStyle _style = TextStyle(color: Colors.black);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+    return Scaffold(backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(title:Center(
         child:
         Text('Clinics' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),),
       body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('user').where('type',isEqualTo:'Hematology').snapshots(),
+        stream: FirebaseFirestore.instance.collection('user').where('type',isEqualTo:'Physical therapy').snapshots(),
         builder: (context, snapshot) {
           if(snapshot.hasData){
             print("yes");

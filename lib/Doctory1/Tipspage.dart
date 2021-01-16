@@ -63,8 +63,10 @@ class _TipspageState extends State<Tipspage> {
                                         right: new BorderSide(width: 1.0, color: Colors.white24))),
                                 child: Icon(Icons.nature_people, color: Colors.white),
                               ),
-                              title: Text(tips['Titletips'],
-                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                              title: Expanded(
+                                child: Text(tips['Titletips'],
+                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                ),
                               ),
                               // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
@@ -211,31 +213,51 @@ class _TipspageState extends State<Tipspage> {
 
                           SizedBox(height: 60,),
                           Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(30.0),
-                              child: OutlineButton(
-                                onPressed: ()async {
-                                if(_formKey.currentState.validate()){
-                                  Firref.add({
-                                    'Titletips':titletext.text,
-                                    'DescTips': desc.text,
-                                    'type':dropdownValue,
-                                  }).then((_) {
-                                    Scaffold.of(context).showSnackBar(
-                                        SnackBar(content: Text('Successfully Added')));
-                                    titletext.clear();
-                                    desc.clear();
-                                    type.clear();
-                                  })..catchError((onError) {
-                                    Scaffold.of(context)
-                                        .showSnackBar(SnackBar(content: Text(onError)));
-                                  });
-                                }
-                                },
-                                color: Colors.blueGrey,
-                                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                                child: Text("Submit",style: TextStyle(color: Colors.lightBlue),),
-                              ),
+                            child: Row(
+                              children: [
+                                Expanded(
+
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: OutlineButton(
+                                      onPressed: ()async {
+                                      if(_formKey.currentState.validate()){
+                                        Firref.add({
+                                          'Titletips':titletext.text,
+                                          'DescTips': desc.text,
+                                          'type':dropdownValue,
+                                        }).then((_) {
+                                          Scaffold.of(context).showSnackBar(
+                                              SnackBar(content: Text('Successfully Added')));
+                                          titletext.clear();
+                                          desc.clear();
+                                          type.clear();
+                                        })..catchError((onError) {
+                                          Scaffold.of(context)
+                                              .showSnackBar(SnackBar(content: Text(onError)));
+                                        });
+                                      }
+                                      },
+                                      color: Colors.blueGrey,
+                                      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                                      child: Text("Submit",style: TextStyle(color: Colors.lightBlue),),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: OutlineButton(
+                                      color: Colors.red,
+                                      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                                      child: Text("finish",style: TextStyle(color: Colors.lightBlue),),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],

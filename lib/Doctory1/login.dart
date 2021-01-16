@@ -198,15 +198,15 @@ class _logintState extends State<login>{
                                 child: Text('Login',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                                 onPressed:()async {
                                   if (_formKey.currentState.validate()) {
-                                    final SharedPreferences sharedPref=await SharedPreferences.getInstance();
-                                    sharedPref.setString('email', email);
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>pathselect()));
+                                    // final SharedPreferences sharedPref=await SharedPreferences.getInstance();
+                                    // sharedPref.setString('email', email);
+                                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>pathselect()));
                                     dynamic result = await _auth
                                         .signinWithEmailandPassword(email, pass);
                                     if (result == null) {
                                       setState(() =>
                                           _showMaterialDialog(error =
-                                          "please supply a valid email"));
+                                          "please supply a valid email or Re-connect"));
                                     }
                                     else{
                                       Navigator.push(context, MaterialPageRoute(builder: (context)=>pathselect()));

@@ -185,54 +185,62 @@ class ClinicsOncology extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              course['image']==null?CircularProgressIndicator():
-                              ClipRRect(
-                                //child:
-                                borderRadius: BorderRadius.circular(20.0),
-                                child: Image.network(course['image'],width: 120,height: 120,) ,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children:[
-                                  Row(
-                                    children: [
-                                      Icon(Icons.person),
-                                      Text("Dr. "+course['name']),
-                                    ],
+                          Card(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                course['image']==null?CircularProgressIndicator():
+                                Expanded(
+                                  child: ClipRRect(
+                                    //child:
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    child: Image.network(course['image'],width: 120,height: 120,) ,
                                   ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children:[
-                                      Icon(Icons.local_hospital),
-                                      Text("  "+course['clincname']+" clinic"),
-                                    ],
-                                  ),
-                                ],
-                                // Text("Name :"+lists[index]['name'],style:
-                                // TextStyle(color: Colors.lightBlue,fontSize: 15,fontWeight: FontWeight.bold),
-                                // ),
-                                // Image.network(lists[index]['image']),
-                              ),
-                              SizedBox(width: 10.0,),
-                              Column(
-                                children: [
-                                  Row(
+                                ),
+
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:[
+                                    Row(
+                                      children: [
+                                        Icon(Icons.person),
+                                        Text("Dr. "+course['name']),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children:[
+                                        Icon(Icons.local_hospital),
+                                        Text("  "+course['clincname']+" clinic"),
+                                      ],
+                                    ),
+                                  ],
+                                  // Text("Name :"+lists[index]['name'],style:
+                                  // TextStyle(color: Colors.lightBlue,fontSize: 15,fontWeight: FontWeight.bold),
+                                  // ),
+                                  // Image.network(lists[index]['image']),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      RaisedButton(
-                                        color: Colors.lightBlue,
-                                        child: Text("Map"),
-                                        onPressed: () {
-                                          launch(course['map']);
-                                        },
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          RaisedButton(
+                                            color: Colors.lightBlue,
+                                            child: Text("Map"),
+                                            onPressed: () {
+                                              launch(course['map']);
+                                            },
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
 
                         ],

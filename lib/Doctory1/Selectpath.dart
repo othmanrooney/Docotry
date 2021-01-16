@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doctory/Doctory1/Start.dart';
 import 'package:doctory/INTERNAL/anmate.dart';
 import 'package:doctory/Services/Auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../Corona/CoronaVirus.dart';
 import 'Feedback page.dart';
@@ -148,7 +150,10 @@ class pathselect extends StatelessWidget {
                     title: Text('Logout'),
                     onTap: ()async{
                       await _auth.signOut();
-                      Navigator.pop(context);
+                      // SharedPreferences prefs = await SharedPreferences.getInstance();
+                      // prefs.remove('email');
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                          StatrPage()), (Route<dynamic> route) => false);
                     },
                   ),
                 ],
@@ -161,7 +166,7 @@ class pathselect extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top:90.0),
+                  padding: EdgeInsets.only(top:30.0),
                   child: Text('Determine Part',style: TextStyle(fontSize:35.0,color: Colors.white,decoration: TextDecoration.none,fontWeight: FontWeight.bold),),
                 ),
                 Row(

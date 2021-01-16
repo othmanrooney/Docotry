@@ -91,32 +91,37 @@ class _feedbackState extends State<feedback> {
                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount
                                    (
                                    crossAxisCount: 2,
-                                   crossAxisSpacing: 5,
-                                   mainAxisSpacing: 10,
-                                   childAspectRatio: 1.5,
+                                   crossAxisSpacing: 1,
+                                   mainAxisSpacing: 5,
+                                   childAspectRatio: 1.1,
                                  ),
                                  itemBuilder:(context ,index){
                                    var tips=snapshot.data.docs[index];
-                                return GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(
-                                        builder: (context)=>singlefeedback(name: tips['Titletips'],clinic: tips['clinicname'],feed: tips['DescTips'],feel:tips['type'] ,)));
-                                  },
-                                  child: Card(
-                                    color: Colors.lightBlue,
-                                    shadowColor: Colors.yellow,
-                                    margin: new EdgeInsets.only(
-                                        left: 20.0, right: 20.0, top: 8.0, bottom: 5.0),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10.0)),
-                                    elevation: 4.0,
-                                    child: Column(
-                                      children: [
-                                        Text(tips['Titletips'],style: TextStyle(fontSize: 25,color: Colors.white)),
-                                        tips['type']=='Sad'?Icon(Icons.mood_bad,size: 60,color: Colors.white,):Icon(Icons.mood,size: 60,color: Colors.white,),
-                                      ],
-                                    ),
-                                     ),
+                                   
+                                return Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(
+                                          builder: (context)=>singlefeedback(name: tips['Titletips'],clinic: tips['clinicname'],feed: tips['DescTips'],feel:tips['type'] ,)));
+                                    },
+                                    child: Card(
+                                      color: Colors.lightBlue,
+                                      shadowColor: Colors.yellow,
+                                      margin: new EdgeInsets.only(
+                                          left: 20.0, right: 20.0, top: 8.0, bottom: 5.0),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(10.0)),
+                                      elevation: 4.0,
+                                      child: Column(
+                                        children: [
+                                          Expanded(child: Center(child: Text(tips['Titletips'],style: TextStyle(fontSize: 25,color: Colors.white)))),
+                                        
+                                          
+                                          tips['type']=='Sad'?Expanded(child: Icon(Icons.mood_bad,size: 60,color: Colors.white,)):Expanded(child: Icon(Icons.mood,size: 60,color: Colors.white,)),
+                                        ],
+                                      ),
+                                       ),
+                                  ),
                                 );
                                  }
                              );
@@ -278,33 +283,52 @@ class _feedbackState extends State<feedback> {
 
                             SizedBox(height: 60,),
                             Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(30.0),
-                                child: OutlineButton(
-                                  onPressed: ()async {
-                                    if(_formKey.currentState.validate()){
-                                      Firref.add({
-                                        'Titletips':titletext.text,
-                                        'clinicname':clinicname.text,
-                                        'DescTips': desc.text,
-                                        'type':dropdownValue,
-                                      }).then((_) {
-                                        Scaffold.of(context).showSnackBar(
-                                            SnackBar(content: Text('Successfully Added')));
-                                        titletext.clear();
-                                        desc.clear();
-                                        type.clear();
-                                        Navigator.pop(context);
-                                      })..catchError((onError) {
-                                        Scaffold.of(context)
-                                            .showSnackBar(SnackBar(content: Text(onError)));
-                                      });
-                                    }
-                                  },
-                                  color: Colors.blueGrey,
-                                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                                  child: Text("Submit",style: TextStyle(color: Colors.lightBlue),),
-                                ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(30.0),
+                                      child: OutlineButton(
+                                        onPressed: ()async {
+                                          if(_formKey.currentState.validate()){
+                                            Firref.add({
+                                              'Titletips':titletext.text,
+                                              'clinicname':clinicname.text,
+                                              'DescTips': desc.text,
+                                              'type':dropdownValue,
+                                            }).then((_) {
+                                              Scaffold.of(context).showSnackBar(
+                                                  SnackBar(content: Text('Successfully Added')));
+                                              titletext.clear();
+                                              desc.clear();
+                                              type.clear();
+                                              Navigator.pop(context);
+                                            })..catchError((onError) {
+                                              Scaffold.of(context)
+                                                  .showSnackBar(SnackBar(content: Text(onError)));
+                                            });
+                                          }
+                                        },
+                                        color: Colors.blueGrey,
+                                        shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                                        child: Text("Submit",style: TextStyle(color: Colors.lightBlue),),
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(30.0),
+                                      child: OutlineButton(
+                                        color: Colors.red,
+                                        shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                                        child: Text("finish",style: TextStyle(color: Colors.lightBlue),),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

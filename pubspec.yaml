@@ -27,6 +27,7 @@ dependencies:
   geolocator: ^6.1.13
   carousel_slider: ^2.3.1
   path_drawing: ^0.4.1+1
+  shape_of_view: ^1.0.2
 
 
 
@@ -86,6 +87,16 @@ flutter:
     - assets/heads.png
     - assets/body2.png
     - assets/body3.png
+    - assets/eye.jpg
+    - assets/hear.jpg
+    - assets/teath.jpg
+    - assets/anf.jpg
+    - assets/bowl.jpg
+    - assets/Derm.jpg
+    - assets/eat.jpg
+    - assets/foot.jpg
+    - assets/orginal.jpg
+    - assets/other.jpg
   uses-material-design: true
   fonts:
     - family: Poppins
