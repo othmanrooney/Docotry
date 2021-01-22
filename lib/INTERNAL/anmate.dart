@@ -46,29 +46,30 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-        backgroundColor: Colors.lightBlue,
-        appBar: AppBar(title: Center (
-          child: Text(widget.title , style: TextStyle(fontSize: 20.0 ,color: Colors.white),),),
-        ),
-        body: Stack(
-          fit: StackFit.expand,
-            alignment: AlignmentDirectional.topStart,
-            children: <Widget>[
-              AnimatedBackground(controller: _controller),
-              Center(
-                  child: ListView(
-                    shrinkWrap: true,
-                    controller: _controller,
-                    children: [
-                      DemoCard(),
-                      ClinicsCardiology(),
-                      ClinicsOncology(),
-                      ClinicsUrology(),
-                      ClinicsNeurology(),
-                      ClinicsDermatology(),
-                      ClinicsPedistric(),
-                      ClinicsHematology(),
-                      ClinicsNerves()
-                    ],))] ));}}
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.lightBlue,
+          appBar: AppBar(title: Center (
+            child: Text(widget.title , style: TextStyle(fontSize: 20.0 ,color: Colors.white),),),
+          ),
+          body: Stack(
+            fit: StackFit.expand,
+              alignment: AlignmentDirectional.topStart,
+              children: <Widget>[
+                AnimatedBackground(controller: _controller),
+                Center(
+                    child: ListView(
+                      shrinkWrap: true,
+                      controller: _controller,
+                      children: [
+                        DemoCard(),
+                        ClinicsCardiology(),
+                        ClinicsDermatology(),
+                        ClinicsHematology(),
+                        ClinicsPedistric(),
+                        ClinicsNeurology(),
+                        ClinicsUrology(),
+                        ClinicsOncology(),
+                      ],))] )),
+    );}}
 

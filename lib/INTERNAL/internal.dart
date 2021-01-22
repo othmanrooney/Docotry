@@ -42,7 +42,7 @@ class DemoCard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context)=> ClinicsCardiology(),
+                        builder: (context)=> ClinicsDermatology(),
                       ),
                     );
                   },
@@ -163,7 +163,7 @@ class DemoCard extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context)=> ClinicsPedistric(),
+                          builder: (context)=> ClinicsHematology(),
                         ),
                       );
                     },
@@ -219,7 +219,7 @@ class DemoCard extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context)=> ClinicsNeurology(),
+                          builder: (context)=> ClinicsPedistric(),
                         ),
                       );
                     },
@@ -323,7 +323,7 @@ class DemoCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context)=> ClinicsNeurology(),
+                  builder: (context)=> ClinicsUrology(),
                 ),
               );
             },
@@ -448,64 +448,8 @@ class DemoCard extends StatelessWidget {
                 )
             ),
           ), //Oncology
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context)=> ClinicsNerves(),
-                ),
-              );
-            },
-            child: Card(
-                elevation: 3,
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: Colors.black),
-                    borderRadius: BorderRadius.circular(32)
-                ),
-                child: Container(
-                  constraints: BoxConstraints.expand(height: 200),
-                  child: RawMaterialButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context)=> ClinicsNerves(),
-                        ),
-                      );
-                    },
-                    child: Column(
-
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
-                            Column(
-                              children: [
-                                Text( "Nerves",
-                                    style: _style.copyWith(fontSize: 20.0)),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Container(
-                                  width: 150.0,
-                                  height: 100.0,
-                                  decoration: new BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(
-                                        30)),
-                                    image: new DecorationImage(
-                                      image: new AssetImage('assets/path/Nerves.jpg'),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],),
-                      ],),), ) ), ),], ),
+        ],
+      ),
     );
   }
 }

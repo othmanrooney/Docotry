@@ -13,6 +13,8 @@ import 'package:provider/provider.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'admin page.dart';
+
 class login extends StatefulWidget{
   @override
   _logintState createState() => _logintState();
@@ -203,33 +205,28 @@ class _logintState extends State<login>{
                                     // Navigator.push(context, MaterialPageRoute(builder: (context)=>pathselect()));
                                     dynamic result = await _auth
                                         .signinWithEmailandPassword(email, pass);
+
                                     if (result == null) {
                                       setState(() =>
                                           _showMaterialDialog(error =
                                           "please supply a valid email or Re-connect"));
                                     }
-                                    else{
+                                    else {
+                                      if(email.toString()=="o@gmail.com" && pass=="123456789"){
+                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>admin()));
+                                      }
+                                      else
                                       Navigator.push(context, MaterialPageRoute(builder: (context)=>pathselect()));
                                     }
 
                                   }
-                                  /*
-the anynomouse login
-                             dynamic result= await _auth.signInAnon();
-                          if(result==null){
-                            print("repeat");
-                       }
-                             else{
-                              print("yes");
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => pathselect()),);
-                            }*/
                                 }),
                           ),
                           SizedBox(height: 20,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text('Forgot Password?',style: TextStyle(color: Colors.lightBlue,fontWeight: FontWeight.bold),),
+                              Text('New User ?',style: TextStyle(color: Colors.lightBlue,fontWeight: FontWeight.bold),),
                               FlatButton(
                                 onPressed: () {
                                   Navigator.push(

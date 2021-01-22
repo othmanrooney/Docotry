@@ -121,12 +121,12 @@ class _CoronaState extends State<Corona> {
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              Text("${covid.cases}",style: TextStyle(
+                              Text("${covid.cases}\,",style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                                 fontWeight:FontWeight.bold,
                               ),),
-                              Text("${covid.deaths}",style: TextStyle(
+                              Text("${covid.deaths}\,",style: TextStyle(
                                 color: Colors.yellowAccent,
                                 fontSize: 20,
                                 fontWeight:FontWeight.bold,
@@ -147,7 +147,7 @@ class _CoronaState extends State<Corona> {
                 else if(SnapShot.hasError){
                   return Text(SnapShot.error.toString());
                 }
-                else return CircularProgressIndicator();
+                else return Center(child: CircularProgressIndicator());
               },
             ),
 
@@ -158,13 +158,13 @@ class _CoronaState extends State<Corona> {
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text('Total Cases',style: TextStyle(
+                      Text('Total Cases\,',style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight:FontWeight.bold,
                       ),
                       ),
-                      Text("Deaths",style: TextStyle(
+                      Text("Deaths\,",style: TextStyle(
                         color: Colors.yellowAccent,
                         fontSize: 20,
                         fontWeight:FontWeight.bold,
@@ -190,58 +190,68 @@ class _CoronaState extends State<Corona> {
                 children: <Widget>[
               
                   Expanded(
-                    child: Card(
+                    child: GestureDetector(
+                      onTap: () {
+                        navigatejordan();
+                      },
+                      child: Card(
                 child: Container(
-                    color: Colors.lightBlue,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                      Image(image:AssetImage('assets/jordans.png'),
-                      height: 90,
-                      width: 90,),
-                        Padding(padding: EdgeInsets.all(10),),
-                        OutlineButton(
-                          borderSide: BorderSide(color: Colors.white),
-                          onPressed: (){
-                            navigatejordan();
-                          },
-                          child:
-                          Text('Jordan StateWise Statistics',style:
-                            TextStyle(
-                              fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold,
-                            ),),
-                        ),
-                      ],
-                    ),
-                ),
-              ),
-                  ),
-                  Expanded(
-                    child: Card(
-                      child: Container(
-                     color:  Colors.lightBlue,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Image(image:AssetImage('assets/world.png'),
-                              fit: BoxFit.cover,
-                              height: 90,
-                              width: 90,),
-                            Padding(padding: EdgeInsets.all(10),),
-                            OutlineButton(
-                              borderSide: BorderSide(color: Colors.white),
-                              onPressed: (){
-                                navigateToCountry();
-                              },
-                              child:
-                              Text('World  StateWise Statistics',style:
+                      color: Colors.lightBlue,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                        Image(image:AssetImage('assets/jordans.png'),
+                        height: 90,
+                        width: 90,),
+                          Padding(padding: EdgeInsets.all(10),),
+                          OutlineButton(
+                            borderSide: BorderSide(color: Colors.white),
+                            onPressed: (){
+                              navigatejordan();
+                            },
+                            child:
+                            Text('Jordan StateWise Statistics',style:
                               TextStyle(
                                 fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold,
                               ),),
-                            ),
-                          ],
+                          ),
+                        ],
+                      ),
+                ),
+              ),
+                    ),
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        navigateToCountry();
+                      },
+                      child: Card(
+                        child: Container(
+                       color:  Colors.lightBlue,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Image(image:AssetImage('assets/world.png'),
+                                fit: BoxFit.cover,
+                                height: 90,
+                                width: 90,),
+                              Padding(padding: EdgeInsets.all(10),),
+                              OutlineButton(
+                                borderSide: BorderSide(color: Colors.white,),
+                                onPressed: (){
+                                  navigateToCountry();
+                                },
+                                child:
+                                Text('World  StateWise Statistics',style:
+                                TextStyle(
+                                  fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold,
+                                ),),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

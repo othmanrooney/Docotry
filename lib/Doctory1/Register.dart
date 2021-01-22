@@ -258,7 +258,6 @@ class _RigistrPageState extends State<RigistrPage> {
                                   }
                                   return null;
                                 },
-
                                 onChanged: (val) {
                                   setState(() {
                                     pass=val;
@@ -336,9 +335,11 @@ class _RigistrPageState extends State<RigistrPage> {
                                 else
                                Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
                               }
-
                             });
-                         } },
+                              _showMaterialDialog(error="please supply a valid email");
+                         }
+                            },
+
 
                         ),
                         ),

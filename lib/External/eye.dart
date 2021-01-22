@@ -216,7 +216,7 @@ class _eyeState extends State<eye> {
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children:[
                                         Icon(Icons.local_hospital),
-                                        Text("  "+course['clincname']+" clinic"),
+                                        Text("Fees : "+course['fees']+"\$"),
                                       ],
                                     ),
                                   ],

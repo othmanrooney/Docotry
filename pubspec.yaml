@@ -28,6 +28,7 @@ dependencies:
   carousel_slider: ^2.3.1
   path_drawing: ^0.4.1+1
   shape_of_view: ^1.0.2
+  draggable_scrollbar: ^0.0.4
 
 
 

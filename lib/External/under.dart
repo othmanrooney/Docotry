@@ -59,7 +59,7 @@ class _underState extends State<under> with SingleTickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.red)
                         ),
-                        child: Text("Press",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        child: Text("Urologist and sexual urologist",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                         color: Colors.lightBlue,
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsUrology()));
@@ -86,7 +86,7 @@ class _underState extends State<under> with SingleTickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.red)
                         ),
-                        child: Text("Press",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        child: Text("Podiatrist",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                         color: Colors.lightBlue,
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Foot()));
@@ -112,7 +112,7 @@ class _underState extends State<under> with SingleTickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.red)
                         ),
-                        child: Text("Press",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        child: Text("General practitioner",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                         color: Colors.lightBlue,
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>other()));

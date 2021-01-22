@@ -217,7 +217,7 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                             child: TextFormField(
                               controller: destinationcontroller,
                               decoration: InputDecoration(
-                                labelText: "Enter Your destination",
+                                labelText: "Enter Your Address",
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -322,7 +322,7 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                               progress: _animationController,
                               color: Colors.blue.shade900,
                               size: 30.0,
-                            ), label: lat==null&&long==null?Text("Double Tap To get Your location"):Text("Done")),
+                            ), label: lat==null&&long==null?Text("Tap 5 times To get Your location"):Text("Done")),
                           ),
                           Padding(
                               padding: EdgeInsets.all(20.0),
@@ -332,7 +332,23 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                                   RaisedButton(
                                     color: Colors.lightBlue,
                                     onPressed: ()async{
-                                      if (_formKey.currentState.validate()) {
+                                      if(long==null&&lat==null){
+                                        showDialog(context: context, child:
+                                        new AlertDialog(
+                                          title: new Text("Location error"),
+                                          content: new Text("Double click to get your location"),
+                                        )
+                                        );
+                                      }
+                                      else if(_imgurl==null){
+                                        showDialog(context: context, child:
+                                        new AlertDialog(
+                                          title: new Text("Image Info : "),
+                                          content: new Text("upload another (JPG)image or wait "),
+                                        )
+                                        );
+                                      }
+                                      else if (_formKey.currentState.validate()){
                                         Firref.add(
                                             {
                                               "name": nameController.text,
@@ -377,14 +393,16 @@ class _docformState extends State<docform> with SingleTickerProviderStateMixin {
                                         //   Scaffold.of(context)
                                         //       .showSnackBar(SnackBar(content: Text(onError)));
                                         // });
-
+                                        showDialog(context: context, child:
+                                        new AlertDialog(
+                                          title: new Text("My Contact : "+nameController.text),
+                                          content: new Text("Yes completed"),
+                                        )
+                                        );
+                                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                            login()), (Route<dynamic> route) => false);
                                       }
-                                      showDialog(context: context, child:
-                                      new AlertDialog(
-                                        title: new Text("My Contact : "+nameController.text),
-                                        content: new Text("Yes completed"),
-                                      )
-                                      );
+
 
                                     },
                                     child: Text('Submit'),

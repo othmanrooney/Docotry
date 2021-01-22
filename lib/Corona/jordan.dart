@@ -8,7 +8,6 @@ class Jordan extends StatefulWidget {
   @override
   _JordanState createState() => _JordanState();
 }
-
 class _JordanState extends State<Jordan> {
   final String url="https://coronavirus-19-api.herokuapp.com/countries/jordan#";
   Future<Tjordan> getjsonData() async{
