@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:doctory/Doctory1/doctorform.dart';
 import 'package:doctory/Doctory1/login.dart';
 import 'package:doctory/Services/Auth.dart';
@@ -303,11 +305,14 @@ class _RigistrPageState extends State<RigistrPage> {
                           onPressed: ()async{
                             if(_formKey.currentState.validate()){
                               dynamic result=await _auth.registerWithEmailandPassword(email, pass);
-                             if(result==null){
-                                setState(() =>_showMaterialDialog(error="please supply a valid email"));
-                               }
-                              print(email);
-                              print(pass);
+                              Timer(Duration(seconds: 3), () {
+                                if(result==null){
+                                  setState(() =>_showMaterialDialog(error="please supply a valid email"));
+                                }
+                                print(email);
+                                print(pass);
+                              });
+
 
                             setState(() {
                               if(wedVal==false){
@@ -336,7 +341,7 @@ class _RigistrPageState extends State<RigistrPage> {
                                Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
                               }
                             });
-                              _showMaterialDialog(error="please supply a valid email");
+
                          }
                             },
 

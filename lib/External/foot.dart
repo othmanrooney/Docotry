@@ -16,10 +16,9 @@ class _FootState extends State<Foot> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
-      appBar: AppBar(title:Center(
-        child:
-        Text('Clinics' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),),
-      body: StreamBuilder(
+      appBar: AppBar(
+        centerTitle: true,
+        title:Text('Doctors' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),      body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('user').where('type',isEqualTo:'Foot').snapshots(),
         builder: (context, snapshot) {
           if(snapshot.hasData){
@@ -218,7 +217,7 @@ class _FootState extends State<Foot> {
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children:[
                                         Icon(Icons.local_hospital),
-                                        Text("Fees : "+course['fees']+"\$"),
+                                        Text("Fees : "+course['fees']),
                                       ],
                                     ),
                                   ],

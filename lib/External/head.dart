@@ -91,7 +91,7 @@ class _headState extends State<head> with SingleTickerProviderStateMixin {
                           borderRadius: BorderRadius.circular(18.0),
                           side: BorderSide(color: Colors.red)
                       ),
-                      child: Text("Hair specialist",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                      child: Text("Hair Specialist",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                       color: Colors.lightBlue,
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Hear()));

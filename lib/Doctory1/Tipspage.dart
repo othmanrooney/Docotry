@@ -72,7 +72,7 @@ class _TipspageState extends State<Tipspage> {
 
                               subtitle: Row(
                                 children: <Widget>[
-                                  Icon(Icons.linear_scale, color: Colors.yellowAccent),
+                                  Icon(Icons.accessibility_new, color: Colors.yellowAccent),
                                   Text(tips['type'], style: TextStyle(color: Colors.white))
                                 ],
                               ),

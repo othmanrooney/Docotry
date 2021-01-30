@@ -15,7 +15,7 @@ class singlefeedback extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Feedy"),
+          title: Text("FeedBack"),
         ),
          body: SingleChildScrollView(
            child: Column(
@@ -28,7 +28,7 @@ class singlefeedback extends StatelessWidget {
                  child: Padding(
                    padding: const EdgeInsets.all(25.0),
                    child: Center(child: Text("Patient Feedback Form : ",style:
-                   TextStyle(fontSize: 30,color: Colors.white),
+                   TextStyle(fontSize: 22,color: Colors.white),
                    )
                    ),
                  ),
@@ -48,13 +48,29 @@ class singlefeedback extends StatelessWidget {
                Padding(
                  padding: const EdgeInsets.all(8.0),
                  child: Center(
-                   child: Text(name,style: TextStyle(color: Colors.blueGrey,fontWeight: FontWeight.bold,fontSize: 25),),
+                   child: Text("DR : "+name,style: TextStyle(color: Colors.blueGrey,fontWeight: FontWeight.bold,fontSize: 25),),
                  ),
                ),
-               Padding(
-                 padding: EdgeInsets.only(top: 20),
-                 child: Text(feed),
-               ),
+               ListView(
+
+                 shrinkWrap: true,
+                   children: [
+                     Row(
+                       children: [
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Text("Feedback : ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.lightBlue),),
+                         ),
+                       ],
+                     ),
+                     Card(
+                         shape: RoundedRectangleBorder(
+                           borderRadius: BorderRadius.circular(15.0),
+                         ),
+                         child: Center(child: Text(feed))),
+                   ],
+                   ),
+
              ],
            ),
          ),

@@ -98,6 +98,7 @@ flutter:
     - assets/foot.jpg
     - assets/orginal.jpg
     - assets/other.jpg
+
   uses-material-design: true
   fonts:
     - family: Poppins

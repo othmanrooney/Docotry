@@ -9,17 +9,30 @@ class world extends StatefulWidget {
 
 class _worldState extends State<world> {
   final String url="https://corona.lmao.ninja/v2/countries";
-
-  Future<List> datas;
-  Future <List> getData()async{
+  List countries = [];
+  List filteredCountries = [];
+  bool isSearching = false;
+  //Future<List> datas;
+   getData()async{
 
       var response= await Dio().get(url);
       return response.data;
   }
+  void _filterCountries(value) {
+    setState(() {
+      filteredCountries = countries
+          .where((country) =>
+          country['country'].toLowerCase().contains(value.toLowerCase())).toList();
+    });
+  }
   @override
   void initState() {
     super.initState();
-  datas=getData();
+    getData().then((data) {
+      setState(() {
+        countries = filteredCountries = data;
+      });
+    });
   }
 
   Future showcases(String cases,tdeath,death,recover)async{
@@ -55,14 +68,103 @@ class _worldState extends State<world> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Country wise Statistics'),
-        centerTitle: true,
+        title: !isSearching
+            ? Text('All Countries')
+            : TextField(
+          onChanged: (value) {
+            _filterCountries(value);
+          },
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+              hintText: "Search Country Here",
+              hintStyle: TextStyle(color: Colors.white)),
+        ),
+        actions: <Widget>[
+          isSearching
+              ? IconButton(
+            icon: Icon(Icons.cancel),
+            onPressed: () {
+              setState(() {
+                this.isSearching = false;
+                filteredCountries = countries;
+              });
+            },
+          )
+              : IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              setState(() {
+                this.isSearching = true;
+              });
+            },
+          )
+        ],
         backgroundColor: Colors.lightBlue,
       ),
       backgroundColor: Colors.white,
       body: Container(
         padding: EdgeInsets.all(10),
-        child: FutureBuilder(
+        child:filteredCountries.length>0?GridView.builder(
+          gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 1.0,
+          ),
+          itemCount: filteredCountries.length,
+          itemBuilder: (BuildContext  , index) => SizedBox(
+            height: 50,width: 50,
+            child: GestureDetector(
+              onTap:() => showcases(
+                countries[index]['cases'].toString(),
+                countries[index]['todayDeaths'].toString(),
+                countries[index]['deaths'].toString(),
+                countries[index]['recovered'].toString(),
+              ),
+              child: Card(
+                color: Colors.lightBlue,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+
+                    Text("Total cases:${filteredCountries[index]['cases'].toString()}",
+                      style: TextStyle(color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+
+                    Padding(
+                      padding: EdgeInsets.only(top: 5),
+                    ),
+                    Image(image:AssetImage('assets/ehabcorona.png'),
+                      height: 100, width: 100,
+                    ),
+                    Expanded(
+                      child: Text(filteredCountries[index]['country'],
+                        style: TextStyle(
+                          color: Colors.white,fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ):Center(child: CircularProgressIndicator()),
+
+      ),
+
+    );
+  }
+}
+/*
+*   FutureBuilder(
           future: datas,
           builder: (BuildContext,Snpashot)
             {
@@ -122,8 +224,4 @@ class _worldState extends State<world> {
               );
             }
         ),
-      ),
-
-    );
-  }
-}
+*/

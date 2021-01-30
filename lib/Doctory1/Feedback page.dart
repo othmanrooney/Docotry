@@ -90,38 +90,39 @@ class _feedbackState extends State<feedback> {
                                itemCount: snapshot.data.docs.length,
                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount
                                    (
-                                   crossAxisCount: 2,
+                                   crossAxisCount: 1,
                                    crossAxisSpacing: 1,
-                                   mainAxisSpacing: 5,
-                                   childAspectRatio: 1.1,
+                                   mainAxisSpacing: 60,
+                                   childAspectRatio: 2.1,
                                  ),
                                  itemBuilder:(context ,index){
                                    var tips=snapshot.data.docs[index];
                                    
-                                return Expanded(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(context, MaterialPageRoute(
-                                          builder: (context)=>singlefeedback(name: tips['Titletips'],clinic: tips['clinicname'],feed: tips['DescTips'],feel:tips['type'] ,)));
-                                    },
-                                    child: Card(
-                                      color: Colors.lightBlue,
-                                      shadowColor: Colors.yellow,
-                                      margin: new EdgeInsets.only(
-                                          left: 20.0, right: 20.0, top: 8.0, bottom: 5.0),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(10.0)),
-                                      elevation: 4.0,
-                                      child: Column(
-                                        children: [
-                                          Expanded(child: Center(child: Text(tips['Titletips'],style: TextStyle(fontSize: 25,color: Colors.white)))),
-                                        
-                                          
-                                          tips['type']=='Sad'?Expanded(child: Icon(Icons.mood_bad,size: 60,color: Colors.white,)):Expanded(child: Icon(Icons.mood,size: 60,color: Colors.white,)),
-                                        ],
-                                      ),
-                                       ),
-                                  ),
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(
+                                        builder: (context)=>singlefeedback(name: tips['Titletips'],clinic: tips['clinicname'],feed: tips['DescTips'],feel:tips['type'] ,)));
+                                  },
+
+                                  child: Card(
+                                    color: Colors.lightBlue,
+                                    shadowColor: Colors.yellow,
+                                    margin: new EdgeInsets.only(
+                                        left: 20.0, right: 20.0, top: 8.0, bottom: 5.0),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10.0)),
+                                    elevation: 4.0,
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Expanded(child: Center(child: Text(tips['Titletips'],style: TextStyle(fontSize: 25,color: Colors.white)))),
+
+
+                                        tips['type']=='Sad'?Expanded(child: Icon(Icons.mood_bad,size: 60,color: Colors.white,)):Expanded(child: Icon(Icons.mood,size: 60,color: Colors.white,)),
+                                      ],
+                                    ),
+                                     ),
                                 );
                                  }
                              );
@@ -297,6 +298,7 @@ class _feedbackState extends State<feedback> {
                                               'DescTips': desc.text,
                                               'type':dropdownValue,
                                             }).then((_) {
+
                                               Scaffold.of(context).showSnackBar(
                                                   SnackBar(content: Text('Successfully Added')));
                                               titletext.clear();
@@ -307,6 +309,12 @@ class _feedbackState extends State<feedback> {
                                               Scaffold.of(context)
                                                   .showSnackBar(SnackBar(content: Text(onError)));
                                             });
+                                            showDialog(context: context, child:
+                                            new AlertDialog(
+                                              title: new Text("Feed back content"),
+                                              content: new Text("Yes completed"),
+                                            )
+                                            );
                                           }
                                         },
                                         color: Colors.blueGrey,
@@ -321,7 +329,7 @@ class _feedbackState extends State<feedback> {
                                       child: OutlineButton(
                                         color: Colors.red,
                                         shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                                        child: Text("finish",style: TextStyle(color: Colors.lightBlue),),
+                                        child: Text("Leave",style: TextStyle(color: Colors.lightBlue),),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },

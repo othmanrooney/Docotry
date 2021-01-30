@@ -66,7 +66,7 @@ class _BodyState extends State<Body>with SingleTickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.red)
                         ),
-                        child: Text("Physical therapy",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        child: Text("Physical Therapy",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                         color: Colors.lightBlue,
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>orginal()));
@@ -93,7 +93,7 @@ class _BodyState extends State<Body>with SingleTickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.red)
                         ),
-                        child: Text("nutrition specialist",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        child: Text("Nutrition Specialist",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                         color: Colors.lightBlue,
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>nutrition_specialist()));
@@ -120,7 +120,7 @@ class _BodyState extends State<Body>with SingleTickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.red)
                         ),
-                        child: Text("nutrition specialist",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        child: Text("Dermatology",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                         color: Colors.lightBlue,
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsDermatology()));

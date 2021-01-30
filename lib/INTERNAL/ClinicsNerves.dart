@@ -9,9 +9,9 @@ class ClinicsNerves extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
-      appBar: AppBar(title:Center(
-        child:
-        Text('Clinics' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),),
+      appBar: AppBar(
+        centerTitle: true,
+        title:Text('Doctors' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('user').where('type',isEqualTo:'ClinicsNerves').snapshots(),
         builder: (context, snapshot) {
@@ -211,7 +211,7 @@ class ClinicsNerves extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children:[
                                         Icon(Icons.local_hospital),
-                                        Text("Fees : "+course['fees']+"\$"),
+                                        Text("Fees : "+course['fees']),
                                       ],
                                     ),
                                   ],

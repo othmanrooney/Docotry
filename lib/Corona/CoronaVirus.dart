@@ -170,7 +170,7 @@ class _CoronaState extends State<Corona> {
                         fontWeight:FontWeight.bold,
                       ),
                       ),
-                      Text("recovered",style: TextStyle(
+                      Text("Recovered",style: TextStyle(
                         color: Colors.lightGreenAccent,
                         fontSize: 20,
                         fontWeight:FontWeight.bold,
@@ -183,81 +183,87 @@ class _CoronaState extends State<Corona> {
             ),
             Padding(padding: EdgeInsets.only(top:20),),
 
-            Container(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
 
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-              
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        navigatejordan();
-                      },
-                      child: Card(
-                child: Container(
-                      color: Colors.lightBlue,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                        Image(image:AssetImage('assets/jordans.png'),
-                        height: 90,
-                        width: 90,),
-                          Padding(padding: EdgeInsets.all(10),),
-                          OutlineButton(
-                            borderSide: BorderSide(color: Colors.white),
-                            onPressed: (){
-                              navigatejordan();
-                            },
-                            child:
-                            Text('Jordan StateWise Statistics',style:
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      navigatejordan();
+                    },
+                    child: Card(
+              child: Container(
+                    color: Colors.lightBlue,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                      Image(image:AssetImage('assets/jordans.png'),
+                      height: 90,
+                      width: 90,),
+                        Padding(padding: EdgeInsets.all(10),),
+                        OutlineButton(
+                          borderSide: BorderSide(color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.red)
+                          ),
+                          onPressed: (){
+                            navigatejordan();
+                          },
+                          child:
+                          Text('Jordan StateWise Statistics',style:
+                            TextStyle(
+                              fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold,
+                            ),),
+                        ),
+                      ],
+                    ),
+              ),
+            ),
+                  ),
+                ),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      navigateToCountry();
+                    },
+                    child: Card(
+
+                      child: Container(
+                     color:  Colors.lightBlue,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Image(image:AssetImage('assets/world.png'),
+                              fit: BoxFit.cover,
+                              height: 90,
+                              width: 90,),
+                            Padding(padding: EdgeInsets.all(10),),
+                            OutlineButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(color: Colors.red)
+                              ),
+                              borderSide: BorderSide(color: Colors.white,),
+                              onPressed: (){
+                                navigateToCountry();
+                              },
+                              child:
+                              Text('World  StateWise Statistics',style:
                               TextStyle(
                                 fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold,
                               ),),
-                          ),
-                        ],
-                      ),
-                ),
-              ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        navigateToCountry();
-                      },
-                      child: Card(
-                        child: Container(
-                       color:  Colors.lightBlue,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Image(image:AssetImage('assets/world.png'),
-                                fit: BoxFit.cover,
-                                height: 90,
-                                width: 90,),
-                              Padding(padding: EdgeInsets.all(10),),
-                              OutlineButton(
-                                borderSide: BorderSide(color: Colors.white,),
-                                onPressed: (){
-                                  navigateToCountry();
-                                },
-                                child:
-                                Text('World  StateWise Statistics',style:
-                                TextStyle(
-                                  fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold,
-                                ),),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Padding(padding: EdgeInsets.only(top: 30),),
             Container(
@@ -277,12 +283,16 @@ class _CoronaState extends State<Corona> {
                               width: 90,),
                             Padding(padding: EdgeInsets.all(10),),
                             OutlineButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(color: Colors.red)
+                              ),
                               borderSide: BorderSide(color: Colors.white),
                               onPressed: (){
                                 navigateToHM("https://www.who.int/news-room/q-a-detail/q-a-coronaviruses");
                               },
                               child:
-                              Text('        Myth  Buster       ',
+                              Text('Corona Answers',
                                 style: TextStyle(
                                 fontSize: 15,color: Colors.white,fontWeight: FontWeight.bold,
                               ),),
@@ -307,6 +317,10 @@ class _CoronaState extends State<Corona> {
                               width: 90,),
                             Padding(padding: EdgeInsets.all(10),),
                             OutlineButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(color: Colors.red)
+                              ),
                               borderSide: BorderSide(color: Colors.white),
                               onPressed: (){
                                 launch("tel://911");

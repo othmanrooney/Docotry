@@ -16,7 +16,7 @@ class _orginalState extends State<orginal> {
     return Scaffold(backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(title:Center(
         child:
-        Text('Clinics' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),),
+        Text('Doctors' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('user').where('type',isEqualTo:'Physical therapy').snapshots(),
         builder: (context, snapshot) {
@@ -216,7 +216,7 @@ class _orginalState extends State<orginal> {
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children:[
                                         Icon(Icons.local_hospital),
-                                        Text("Fees : "+course['fees']+"\$"),
+                                        Text("Fees : "+course['fees']),
                                       ],
                                     ),
                                   ],

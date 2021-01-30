@@ -16,7 +16,7 @@ class _HearState extends State<Hear> {
     return Scaffold(backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(title:Center(
         child:
-        Text('Clinics' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),),
+        Text('Doctors' , style: TextStyle(fontSize: 30.0 ,color: Colors.white),),),),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('user').where('type',isEqualTo:'hear').snapshots(),
         builder: (context, snapshot) {
@@ -216,7 +216,7 @@ class _HearState extends State<Hear> {
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children:[
                                         Icon(Icons.local_hospital),
-                                        Text("Fees : "+course['fees']+"\$"),
+                                        Text("Fees : "+course['fees']),
                                       ],
                                     ),
                                   ],
