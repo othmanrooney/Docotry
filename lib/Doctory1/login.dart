@@ -226,7 +226,7 @@ class _logintState extends State<login>{
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text('New User ?',style: TextStyle(color: Colors.lightBlue,fontWeight: FontWeight.bold),),
+                              Text('New User ?'),
                               FlatButton(
                                 onPressed: () {
                                   Navigator.push(
@@ -234,7 +234,7 @@ class _logintState extends State<login>{
                                     MaterialPageRoute(builder: (context) => RigistrPage()),
                                   );
                                 },
-                                child: Text('SignUp',style: TextStyle(decorationStyle:TextDecorationStyle.solid ),),
+                                child: Text('SignUp',style: TextStyle(color: Colors.lightBlue,decorationStyle:TextDecorationStyle.solid ,fontWeight: FontWeight.bold),),
                               ),
                             ],
                           ),
