@@ -130,6 +130,7 @@ class _TipspageState extends State<Tipspage> {
                                 height:80.0,
                                 width: 150.0,
                                 child: TextFormField(
+                                    key: const ValueKey('tipss'),
                                   cursorColor: Colors.lightBlue,
                                   controller: titletext,
                                   style: TextStyle( decoration: TextDecoration.none),
@@ -190,6 +191,7 @@ class _TipspageState extends State<Tipspage> {
                             child: Padding(
                               padding: const EdgeInsets.all(30.0),
                               child: TextFormField(
+                                key: const ValueKey('testdesc'),
                                 controller: desc,
                                 decoration: InputDecoration(
 
